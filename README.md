@@ -1,5 +1,4 @@
-# LeetCode
-LeetCode习题整理
+# LeetCode 编程题整理
 ## 数据结构
 - 数组和矩阵
 - 链表
