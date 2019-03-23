@@ -1,59 +1,34 @@
-def find_empty_location(arr, idx_now):
-    for row in range(9):
-        for col in range(9):
-            if arr[row][col] == ".":
-                idx_now[0] = row
-                idx_now[1] = col
-                return True
-    return False
-
-
-def used_in_row(arr, row, num):
+def check_location_is_safe(board, row, col, num):
     for i in range(9):
-        if arr[row][i] == str(num):
-            return True
-    return False
+        if board[i][col] == str(num):
+            return False
 
+    for j in range(9):
+        if board[row][j] == str(num):
+            return False
 
-def used_in_col(arr, col, num):
-    for i in range(9):
-        if arr[i][col] == str(num):
-            return True
-    return False
-
-
-def used_in_grid(arr, row, col, num):
     for i in range(3):
         for j in range(3):
-            if arr[row+i][col+j] == str(num):
-                return True
-    return False
+            if board[row - row % 3 + i][col - col % 3 + j] == str(num):
+                return False
+    return True
 
 
-def check_location_is_safe(arr, row, col, num):
-    return not used_in_row(arr, row, num) and \
-           not used_in_col(arr, col, num) and \
-           not used_in_grid(arr, row - row % 3, col - col % 3, num)
+def solve_sudoku(board, row, col):
+    while row < 9 and board[row][col] != ".":
+        row = row + 1 if col == 8 else row
+        col = 0 if col == 8 else col + 1
 
-
-def solve_sudoku(arr):
-    idx_now = [0, 0]
-
-    if not find_empty_location(arr, idx_now):
+    if row < 9:
+        for num in range(1, 10):
+            if check_location_is_safe(board, row, col, num):
+                board[row][col] = str(num)
+                if solve_sudoku(board, row, col):
+                    return True
+                board[row][col] = "."
+        return False
+    else:
         return True
-
-    row = idx_now[0]
-    col = idx_now[1]
-
-    for num in range(1, 10):
-        if check_location_is_safe(arr, row, col, num):
-            arr[row][col] = str(num)
-            if solve_sudoku(arr):
-                return True
-            else:
-                arr[row][col] = "."
-
-    return False
 
 
 if __name__ == "__main__":
@@ -67,5 +42,6 @@ if __name__ == "__main__":
              [".", ".", ".", "4", "1", "9", ".", ".", "5"],
              [".", ".", ".", ".", "8", ".", ".", "7", "9"]]
 
-    solve_sudoku(board)
+    row, col = 0, 0
+    solve_sudoku(board, row, col)
     print(board)
