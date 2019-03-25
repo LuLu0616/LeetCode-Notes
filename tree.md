@@ -1,8 +1,8 @@
 ## 目录
-[0104. 二叉树的最大深度](#0104)   
-[0110. 平衡二叉树](#0110)
-[0226. 翻转二叉树](#0226)  
-[0617. 合并二叉树](#0617)    
+[0104. 二叉树的最大深度](#0104)     
+[0110. 平衡二叉树](#0110)  
+[0226. 翻转二叉树](#0226)    
+[0617. 合并二叉树](#0617)     
 
 <a name="0104"></a>
 ## 0104. 二叉树的最大深度 (Easy)
@@ -39,7 +39,6 @@ LeetCode: https://leetcode.com/problems/maximum-depth-of-binary-tree/
 #### 示例 1
 ```html
 给定二叉树 [3,9,20,null,null,15,7]
-
     3
    / \
   9  20
@@ -50,7 +49,6 @@ LeetCode: https://leetcode.com/problems/maximum-depth-of-binary-tree/
 #### 示例 2
 ```html
 给定二叉树 [1,2,2,3,3,null,null,4,4]
-
        1
       / \
      2   2
@@ -62,7 +60,19 @@ LeetCode: https://leetcode.com/problems/maximum-depth-of-binary-tree/
 ```
 #### 代码
 ``` python3
-
+def maxDepth(self, root: TreeNode) -> int:
+    if root is None:
+        return 0
+    else:
+        return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
+        
+def isBalanced(self, root: TreeNode) -> bool:
+    if root is None:
+        return True
+    elif abs(self.maxDepth(root.left) - self.maxDepth(root.right))<=1:
+        if self.isBalanced(root.left) and self.isBalanced(root.right):
+            return True
+    return False
 ```
 LeetCode: https://leetcode.com/problems/maximum-depth-of-binary-tree/
 
