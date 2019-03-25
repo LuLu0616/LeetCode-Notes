@@ -23,10 +23,10 @@ return its depth = 3.
 #### 代码
 ``` python3
 def maxDepth(self, root: TreeNode) -> int:
-        if root is None:
-            return 0
-        else:
-            return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
+    if root is None:
+        return 0
+    else:
+        return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
 ```
 LeetCode: https://leetcode.com/problems/maximum-depth-of-binary-tree/
 
@@ -99,13 +99,13 @@ LeetCode: https://leetcode.com/problems/maximum-depth-of-binary-tree/
 #### 代码
 ``` python3
 def invertTree(self, root: TreeNode) -> TreeNode:
-        if root is not None:
-            temp = root.right
-            root.right = root.left
-            root.left = temp
-            root.left = self.invertTree(root.left)
-            root.right = self.invertTree(root.right)
-        return root
+    if root is not None:
+        temp = root.right
+        root.right = root.left
+        root.left = temp
+        root.left = self.invertTree(root.left)
+        root.right = self.invertTree(root.right)
+    return root
 ```
 LeetCode: https://leetcode.com/problems/invert-binary-tree/
 
@@ -135,17 +135,17 @@ LeetCode: https://leetcode.com/problems/invert-binary-tree/
 #### 代码
 ``` python3
 def mergeTrees(self, t1: TreeNode, t2: TreeNode) -> TreeNode:
-        if t1 is None and t2 is None:
-            return None
-        elif t2 is None:
-            return t1
-        elif t1 is None:
-            return t2
-        else:
-            t = TreeNode(t1.val + t2.val)
-            t.left = self.mergeTrees(t1.left, t2.left)
-            t.right = self.mergeTrees(t1.right, t2.right)
-            return t
+    if t1 is None and t2 is None:
+        return None
+    elif t2 is None:
+        return t1
+    elif t1 is None:
+        return t2
+    else:
+        t = TreeNode(t1.val + t2.val)
+        t.left = self.mergeTrees(t1.left, t2.left)
+        t.right = self.mergeTrees(t1.right, t2.right)
+        return t
 }
 ```
 LeetCode: https://leetcode.com/problems/merge-two-binary-trees/
