@@ -1,7 +1,8 @@
 ## 目录
 [0104. 二叉树的最大深度](#0104)     
 [0110. 平衡二叉树](#0110)  
-[0226. 翻转二叉树](#0226)    
+[0226. 翻转二叉树](#0226)  
+[0543. 二叉树的直径](#0543)  
 [0617. 合并二叉树](#0617)     
 
 <a name="0104"></a>
@@ -74,7 +75,7 @@ def isBalanced(self, root: TreeNode) -> bool:
             return True
     return False
 ```
-LeetCode: https://leetcode.com/problems/maximum-depth-of-binary-tree/
+LeetCode: https://leetcode.com/problems/balanced-binary-tree/
 
 <a name="0226"></a>
 ## 0226. 翻转二叉树 (Easy) 
@@ -108,6 +109,29 @@ def invertTree(self, root: TreeNode) -> TreeNode:
     return root
 ```
 LeetCode: https://leetcode.com/problems/invert-binary-tree/
+
+<a name="0543"></a>
+## 0543. 二叉树的直径 (Easy) 
+#### 题目描述
+给定一棵二叉树，你需要计算它的直径长度。一棵二叉树的直径长度是任意两个结点路径长度中的最大值。这条路径可能穿过根结点。 
+#### 示例 1
+```html
+给定二叉树
+
+          1
+         / \
+        2   3
+       / \     
+      4   5    
+返回 3, 它的长度是路径 [4,2,1,3] 或者 [5,2,1,3]。
+```
+**注意**: 两结点之间的路径长度是以它们之间边的数目表示。
+#### 代码
+``` python3
+
+
+```
+LeetCode: https://leetcode.com/problems/diameter-of-binary-tree/
 
 <a name="0617"></a>
 ## 0617. 合并二叉树 (Easy) 
@@ -146,6 +170,5 @@ def mergeTrees(self, t1: TreeNode, t2: TreeNode) -> TreeNode:
         t.left = self.mergeTrees(t1.left, t2.left)
         t.right = self.mergeTrees(t1.right, t2.right)
         return t
-}
 ```
 LeetCode: https://leetcode.com/problems/merge-two-binary-trees/
