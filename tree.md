@@ -1,5 +1,6 @@
 ## 目录
-[0104. 二叉树的最大深度](#0104)    
+[0104. 二叉树的最大深度](#0104)   
+[0110. 平衡二叉树](#0110)
 [0226. 翻转二叉树](#0226)  
 [0617. 合并二叉树](#0617)    
 
@@ -29,6 +30,42 @@ def maxDepth(self, root: TreeNode) -> int:
 ```
 LeetCode: https://leetcode.com/problems/maximum-depth-of-binary-tree/
 
+<a name="0110"></a>
+## 0110. 平衡二叉树 (Easy)
+#### 题目描述
+给定一个二叉树，判断它是否是高度平衡的二叉树。  
+本题中，一棵高度平衡二叉树定义为：  
+一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过1。  
+#### 示例 1
+```html
+给定二叉树 [3,9,20,null,null,15,7]
+
+    3
+   / \
+  9  20
+    /  \
+   15   7
+返回 true 。
+```
+#### 示例 2
+```html
+给定二叉树 [1,2,2,3,3,null,null,4,4]
+
+       1
+      / \
+     2   2
+    / \
+   3   3
+  / \
+ 4   4
+返回 false 。
+```
+#### 代码
+``` python3
+
+```
+LeetCode: https://leetcode.com/problems/maximum-depth-of-binary-tree/
+
 <a name="0226"></a>
 ## 0226. 翻转二叉树 (Easy) 
 #### 题目描述
@@ -41,6 +78,7 @@ LeetCode: https://leetcode.com/problems/maximum-depth-of-binary-tree/
   2     7
  / \   / \
 1   3 6   9
+
 输出：
      4
    /   \
@@ -68,7 +106,7 @@ LeetCode: https://leetcode.com/problems/invert-binary-tree/
 你需要将他们合并为一个新的二叉树。合并的规则是如果两个节点重叠，那么将他们的值相加作为节点合并后的新值，否则不为**NULL**的节点将直接作为新二叉树的节点。  
 #### 示例 1
 ```html
-Input:
+输入:
        Tree 1                     Tree 2
           1                         2
          / \                       / \
@@ -76,7 +114,7 @@ Input:
        /                           \   \
       5                             4   7
 
-Output:
+输出:
          3
         / \
        4   5
